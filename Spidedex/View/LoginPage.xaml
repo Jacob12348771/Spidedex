@@ -2,10 +2,11 @@
 <ContentPage Shell.NavBarIsVisible="False"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Spidedex.MainPage">
+             x:Class="Spidedex.LoginPage">
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -15,13 +16,13 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0">
-          
-        </Grid>
-
-        <Grid Grid.Row="0" Grid.Column="1">
+        
+            <Image Source="rsz_web_left.png" Aspect="AspectFill"
+                   Grid.Row="0" Grid.Column="0"></Image>
+     
+            <Image Source="rsz_web_right.png" Aspect="AspectFill"
+                   Grid.Row="0" Grid.Column="1"></Image>
        
-        </Grid>
 
         <VerticalStackLayout
             Grid.Row="1"
@@ -37,7 +38,7 @@
 
             <StackLayout Orientation="Horizontal">
                 <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
-
+                    <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
                     <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Username" Keyboard="Email" />
@@ -46,16 +47,16 @@
 
             <StackLayout Orientation="Horizontal">
                 <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
-
+                    <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
                     <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" Keyboard="Email" />
                 </Frame>
             </StackLayout>
 
-            <Button Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28"></Button>
+            <Button Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
                 <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
                 <Label Text="Sign Up" FontSize="18" TextColor="#AD7BFF" HorizontalTextAlignment="Center"></Label>
             </StackLayout>

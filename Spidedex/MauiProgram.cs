@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Spidedex.View;
+using Spidedex.ViewModel;
 
 namespace Spidedex;
 
@@ -19,6 +21,10 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+		builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddSingleton<LoginPageViewModel>();
+		builder.Services.AddSingleton<DashboardPage>();
+		builder.Services.AddSingleton<DashboardPageViewModel>();
+        return builder.Build();
 	}
 }
