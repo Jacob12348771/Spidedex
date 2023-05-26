@@ -1,41 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage Shell.NavBarIsVisible="False"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Spidedex.MainPage">
 
-    <ScrollView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+          
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+       
+        </Grid>
+
         <VerticalStackLayout
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <VerticalStackLayout Spacing="30">
+                <Label Text="Spidedex" FontSize="30" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Login to view spiders care facts along with care guides to follow!" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </VerticalStackLayout>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Username" Keyboard="Email" />
+                </Frame>
+            </StackLayout>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
 
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" Keyboard="Email" />
+                </Frame>
+            </StackLayout>
+
+            <Button Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28"></Button>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Sign Up" FontSize="18" TextColor="#AD7BFF" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 
 </ContentPage>
