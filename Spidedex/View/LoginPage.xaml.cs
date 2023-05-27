@@ -1,6 +1,6 @@
 ﻿using Spidedex.ViewModel;
 
-namespace Spidedex;
+namespace Spidedex.View;
 
 public partial class LoginPage : ContentPage
 {

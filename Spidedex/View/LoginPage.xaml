@@ -2,7 +2,7 @@
 <ContentPage Shell.NavBarIsVisible="False"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Spidedex.LoginPage">
+             x:Class="Spidedex.View.LoginPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -41,7 +41,7 @@
                     <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Username" Keyboard="Email" />
+                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Username" Keyboard="Email" Text="{Binding Email}"/>
                 </Frame>
             </StackLayout>
 
@@ -50,7 +50,7 @@
                     <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" Keyboard="Email" />
+                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
                 </Frame>
             </StackLayout>
 

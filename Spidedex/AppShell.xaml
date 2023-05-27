@@ -3,45 +3,47 @@
     x:Class="Spidedex.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Spidedex"
-    xmlns:dashboardPage="clr-namespace:Spidedex.View"
-    Shell.NavBarIsVisible="False">
+    xmlns:local="clr-namespace:Spidedex.View"
+    Shell.NavBarIsVisible="True">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage"
-        FlyoutItem.IsVisible="False"/>
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"/>
 
-    <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
         
         <ShellContent
         Icon="clipboard.svg"
         Title="Fact Sheets"
-        ContentTemplate="{DataTemplate dashboardPage:DashboardPage}"
-        Route="DashboardPage">
+        ContentTemplate="{DataTemplate local:DashboardPage}">
         </ShellContent>
-        
+
         <ShellContent
         Icon="spider_web.png"
         Title="My Spiders"
-        ContentTemplate="{DataTemplate dashboardPage:DashboardPage}"
-        Route="DashboardPage">
+        ContentTemplate="{DataTemplate local:DashboardPage}">
         </ShellContent>
 
         <ShellContent
         Icon="globe.svg"
         Title="Resources"
-        ContentTemplate="{DataTemplate dashboardPage:DashboardPage}"
-        Route="DashboardPage">
+        ContentTemplate="{DataTemplate local:DashboardPage}">
         </ShellContent>
 
         <ShellContent
         Icon="settings.svg"
         Title="Settings"
-        ContentTemplate="{DataTemplate dashboardPage:DashboardPage}"
-        Route="DashboardPage">
+        ContentTemplate="{DataTemplate local:DashboardPage}">
         </ShellContent>
-
     </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}"></Button>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+    
 </Shell>
