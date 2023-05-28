@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
+using Spidedex.Controls;
 using Spidedex.Model;
 using Spidedex.View;
 
@@ -40,6 +41,7 @@ namespace Spidedex.ViewModel
 
                 Preferences.Set(nameof(App.UserDetails), userDetailsString);
                 App.UserDetails = userDetails;
+                AppShell.Current.FlyoutHeader = new HeaderControl();
                 await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
             }
         }

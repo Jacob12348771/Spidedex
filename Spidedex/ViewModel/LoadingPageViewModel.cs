@@ -1,4 +1,7 @@
-﻿using Spidedex.View;
+﻿using Newtonsoft.Json;
+using Spidedex.Controls;
+using Spidedex.Model;
+using Spidedex.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,9 @@ namespace Spidedex.ViewModel
             }
             else
             {
+                var userDetails = JsonConvert.DeserializeObject<User>(userDetailsString);
+                App.UserDetails = userDetails;
+                AppShell.Current.FlyoutHeader = new HeaderControl();
                 await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
             }
         }
