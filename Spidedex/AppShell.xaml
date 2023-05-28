@@ -6,8 +6,15 @@
     xmlns:local="clr-namespace:Spidedex.View"
     Shell.NavBarIsVisible="True">
 
+    
     <ShellContent
-        Title="Home"
+        ContentTemplate="{DataTemplate local:LoadingPage}"
+        Route="LoadingPage"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"/>
+
+    <ShellContent
+        Title="Login Page"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage"
         FlyoutItemIsVisible="False"

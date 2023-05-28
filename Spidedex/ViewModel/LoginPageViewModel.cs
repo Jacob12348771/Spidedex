@@ -26,10 +26,10 @@ namespace Spidedex.ViewModel
             var userDetails = new User
             {
                 Email = Email,
-                Password = Password
+                //Password = Password
             };
 
-            if (string.IsNullOrWhiteSpace(Email) && string.IsNullOrWhiteSpace(Password))
+            if (!string.IsNullOrWhiteSpace(Email) && !string.IsNullOrWhiteSpace(Password))
             {
                 if (Preferences.ContainsKey(nameof(App.UserDetails)))
                 {
