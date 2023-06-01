@@ -4,6 +4,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Spidedex.View.LoginPage">
 
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="HyperlinkButtonStyle">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="Blue" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </ContentPage.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -57,8 +65,10 @@
             <Button Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
 
             <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
-                <Label Text="Sign Up" FontSize="18" TextColor="#AD7BFF" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Already have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button Text="Sign In" FontSize="18" TextColor="#AD7BFF"
+                    Style="{StaticResource HyperlinkButtonStyle}"
+                    Command="{Binding NavigateToRegisterCommand}" />
             </StackLayout>
         </VerticalStackLayout>
     </Grid>

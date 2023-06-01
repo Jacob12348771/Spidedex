@@ -9,5 +9,12 @@ public partial class LoginPage : ContentPage
 		InitializeComponent();
 		this.BindingContext = viewModel;
 	}
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        // Release resources, unsubscribe from event handlers, clean up UI elements
+    }
 }
 

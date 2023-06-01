@@ -86,4 +86,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionSpidedexHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

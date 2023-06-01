@@ -47,6 +47,12 @@ namespace Spidedex.ViewModel
                 //AppShell.Current.FlyoutHeader = new HeaderControl();
                 await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
             }
-        }   
+        }
+
+        [RelayCommand]
+        async void NavigateToLogin()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        }
     }
 }

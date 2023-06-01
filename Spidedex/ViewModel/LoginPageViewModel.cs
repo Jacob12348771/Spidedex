@@ -45,5 +45,11 @@ namespace Spidedex.ViewModel
                 await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
             }
         }
+
+        [RelayCommand]
+        async void NavigateToRegister()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+        }
     }
 }
