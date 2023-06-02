@@ -20,6 +20,13 @@
         FlyoutItemIsVisible="False"
         Shell.FlyoutBehavior="Disabled"/>
 
+    <ShellContent
+        Title="Register Page"
+        ContentTemplate="{DataTemplate local:RegisterPage}"
+        Route="RegisterPage"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"/>
+
     <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
         
         <ShellContent

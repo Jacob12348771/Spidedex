@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Firebase.Auth;
 using Newtonsoft.Json;
 using Spidedex.Controls;
 using Spidedex.Model;
@@ -14,6 +15,8 @@ namespace Spidedex.ViewModel
 {
     public partial class RegisterPageViewModel : BaseViewModel
     {
+        public string apiKey = "AIzaSyBxH3egBwl1T5ukQhRHga7OerGPc-2lCDA ";
+
         [ObservableProperty]
         private string _email;
 
@@ -26,26 +29,47 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async void Register()
         {
-
-            var userDetails = new User
-            {
-                Email = Email,
-                //Password = Password
-            };
-
             if (!string.IsNullOrWhiteSpace(Email) && !string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(ConfirmPassword))
             {
-                if (Preferences.ContainsKey(nameof(App.UserDetails)))
+                if (Password != ConfirmPassword)
                 {
-                     Preferences.Remove(nameof(App.UserDetails));
+                    await App.Current.MainPage.DisplayAlert("Error", "Passwords do not match", "OK");
+                    return;
+                }
+                try
+                {
+                    var authenticationProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+                    var auth = await authenticationProvider.CreateUserWithEmailAndPasswordAsync(Email, Password);
+                    string token = auth.FirebaseToken;
+                    if (!string.IsNullOrWhiteSpace(token))
+                    {
+                        await App.Current.MainPage.DisplayAlert("Success", "User Registered", "OK");
+                        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                    }
                 }
 
-                string userDetailsString = JsonConvert.SerializeObject(userDetails);
-
-                Preferences.Set(nameof(App.UserDetails), userDetailsString);
-                App.UserDetails = userDetails;
-                //AppShell.Current.FlyoutHeader = new HeaderControl();
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("InvalidEmailAddress"))
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", "Invalid email address", "OK");
+                        return;
+                    } 
+                    else if (ex.Message.Contains("EmailExists"))
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", "Email already exists", "OK");
+                        return;
+                    } 
+                    else if (ex.Message.Contains("WeakPassword")) {
+                        await App.Current.MainPage.DisplayAlert("Error", "Password must be over 6 character long", "OK");
+                        return;
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                        return;
+                    }
+                }
             }
         }
 

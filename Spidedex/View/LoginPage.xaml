@@ -49,7 +49,7 @@
                     <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Username" Keyboard="Email" Text="{Binding Email}"/>
+                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
                 </Frame>
             </StackLayout>
 
@@ -58,15 +58,15 @@
                     <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
+                    <Entry Margin="20, 0, 0, 0" IsPassword="True" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
                 </Frame>
             </StackLayout>
 
             <Button Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
 
             <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Already have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                <Button Text="Sign In" FontSize="18" TextColor="#AD7BFF"
+                <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button Text="Sign Up" FontSize="18" TextColor="#AD7BFF"
                     Style="{StaticResource HyperlinkButtonStyle}"
                     Command="{Binding NavigateToRegisterCommand}" />
             </StackLayout>
