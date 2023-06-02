@@ -27,30 +27,30 @@
         FlyoutItemIsVisible="False"
         Shell.FlyoutBehavior="Disabled"/>
 
-    <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem Route="FactSheetsPage" FlyoutDisplayOptions="AsMultipleItems">
         
         <ShellContent
         Icon="clipboard.svg"
         Title="Fact Sheets"
-        ContentTemplate="{DataTemplate local:DashboardPage}">
+        ContentTemplate="{DataTemplate local:FactSheetsPage}">
         </ShellContent>
 
         <ShellContent
         Icon="spider_web.png"
         Title="My Spiders"
-        ContentTemplate="{DataTemplate local:DashboardPage}">
+        ContentTemplate="{DataTemplate local:FactSheetsPage}">
         </ShellContent>
 
         <ShellContent
         Icon="globe.svg"
         Title="Resources"
-        ContentTemplate="{DataTemplate local:DashboardPage}">
+        ContentTemplate="{DataTemplate local:FactSheetsPage}">
         </ShellContent>
 
         <ShellContent
         Icon="settings.svg"
         Title="Settings"
-        ContentTemplate="{DataTemplate local:DashboardPage}">
+        ContentTemplate="{DataTemplate local:FactSheetsPage}">
         </ShellContent>
     </FlyoutItem>
 

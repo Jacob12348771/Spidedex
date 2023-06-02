@@ -25,8 +25,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<LoginPageViewModel>();
 		builder.Services.AddSingleton<RegisterPage>();
 		builder.Services.AddSingleton<RegisterPageViewModel>();
-		builder.Services.AddSingleton<DashboardPage>();
-		builder.Services.AddSingleton<DashboardPageViewModel>();
+		builder.Services.AddSingleton<FactSheetsPage>();
+		builder.Services.AddSingleton<FactSheetsPageViewModel>();
 		builder.Services.AddSingleton<LoadingPage>();
 		builder.Services.AddSingleton<LoadingPageViewModel>();
 

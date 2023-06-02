@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spidedex.ViewModel
 {
-    public partial class DashboardPageViewModel : BaseViewModel
+    public partial class FactSheetsPageViewModel : BaseViewModel
     {
-        public DashboardPageViewModel()
+        public FactSheetsPageViewModel()
         {
             Title = "Welcome!";
         }
