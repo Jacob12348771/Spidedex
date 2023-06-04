@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Spidedex.Services;
 using Spidedex.View;
 using Spidedex.ViewModel;
 
@@ -20,13 +21,14 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+		builder.Services.AddSingleton<DataAccessService>();
 
 		builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<LoginPageViewModel>();
 		builder.Services.AddSingleton<RegisterPage>();
 		builder.Services.AddSingleton<RegisterPageViewModel>();
-		builder.Services.AddSingleton<FactSheetsPage>();
-		builder.Services.AddSingleton<FactSheetsPageViewModel>();
+		builder.Services.AddSingleton<MySpidersPage>();
+		builder.Services.AddSingleton<MySpidersPageViewModel>();
 		builder.Services.AddSingleton<LoadingPage>();
 		builder.Services.AddSingleton<LoadingPageViewModel>();
 

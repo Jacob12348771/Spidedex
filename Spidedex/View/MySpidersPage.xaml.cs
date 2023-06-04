@@ -2,9 +2,9 @@ using Spidedex.ViewModel;
 
 namespace Spidedex.View;
 
-public partial class FactSheetsPage : ContentPage
+public partial class MySpidersPage : ContentPage
 {
-	public FactSheetsPage(FactSheetsPageViewModel viewModel)
+    public MySpidersPage(MySpidersPageViewModel viewModel)
 	{
 		InitializeComponent();
 		this.BindingContext = viewModel;

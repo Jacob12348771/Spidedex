@@ -67,8 +67,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="View\FactSheetsPage.xaml.cs">
-	    <DependentUpon>FactSheetsPage.xaml</DependentUpon>
+	  <Compile Update="View\MySpidersPage.xaml.cs">
+	    <DependentUpon>MySpidersPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\MySpidersPage.xaml.cs">
+	    <DependentUpon>MySpidersPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -79,7 +82,7 @@
 	  <MauiXaml Update="Controls\HeaderControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\FactSheetsPage.xaml">
+	  <MauiXaml Update="View\MySpidersPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\LoadingPage.xaml">

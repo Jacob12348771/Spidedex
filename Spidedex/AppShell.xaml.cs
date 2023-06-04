@@ -9,7 +9,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 		this.BindingContext = new AppShellViewModel();
-		Routing.RegisterRoute(nameof(FactSheetsPage), typeof(FactSheetsPage));
+		Routing.RegisterRoute(nameof(MySpidersPage), typeof(MySpidersPage));
 		Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
 		Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
 	}

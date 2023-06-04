@@ -21,15 +21,8 @@ namespace Spidedex.Services
 
         private string GetBaseAdress()
         {
-#if DEBUG
-            return DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5157" : "https://localhost:7160";
-            /*
-            #elif RELEASE
-                // published address here
-                return "https://BALH.azurewebsites.net";
-            */
-            #endif
-            
+            //return DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5157" : "https://localhost:7160";
+            return "https://spidedexapi20230604130659.azurewebsites.net";
         }
 
         public async Task<bool> AddUpdateSpiderAsync(Spider spider)
@@ -56,7 +49,7 @@ namespace Spidedex.Services
                 }
                 return await Task.FromResult(true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return await Task.FromResult(false);
             }

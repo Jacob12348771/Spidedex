@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+/*
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -16,22 +18,26 @@ builder.Services.AddCors(options =>
         builder.AllowAnyHeader();
     });
 });
+*/
 
-var databasePath = Path.Join("./spidedex.db");
+var databasePath = Path.Join("spidedex.db");
 var connectionString = new SqliteConnection($"Data Source={databasePath}");
 builder.Services.AddDbContext<SpidedexDbContext>(options => options.UseSqlite(connectionString));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
+using (var dbContext = scope.ServiceProvider.GetService<SpidedexDbContext>())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    dbContext?.Database.Migrate();
 }
 
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseHttpsRedirection();
-app.UseCors("AllowAll");  
+//app.UseCors("AllowAll");  
 
 // Get all spiders
 app.MapGet("/spiders", async (SpidedexDbContext dbContext) =>
