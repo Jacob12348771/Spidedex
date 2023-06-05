@@ -22,15 +22,11 @@ namespace Spidedex.ViewModel
 
         public MySpidersPageViewModel(DataAccessService dataAccessService)
         {
-            //Title = "Welcome!";
             this._dataAccessService = dataAccessService;
-            try
+
+            if (Preferences.ContainsKey(nameof(App.UserDetails)))
             {
                 GetSpidersCommand.ExecuteAsync(null);
-            }
-            catch (Exception)
-            {
-                // User is not logged in
             }
         }
 

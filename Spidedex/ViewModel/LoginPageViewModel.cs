@@ -68,7 +68,7 @@ namespace Spidedex.ViewModel
                     Preferences.Set(nameof(App.UserDetails), userDetailsString);
                     App.UserDetails = userDetails;
                     AppShell.Current.FlyoutHeader = new HeaderControl();
-                    spidersPageViewModel.GetSpidersCommand.ExecuteAsync(null);
+                    await spidersPageViewModel.GetSpidersCommand.ExecuteAsync(null);
                     await Shell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
 
                 }
