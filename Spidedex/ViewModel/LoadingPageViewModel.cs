@@ -23,7 +23,18 @@ namespace Spidedex.ViewModel
 
             if (string.IsNullOrWhiteSpace(userDetailsString))
             {
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                if (DeviceInfo.Platform == DevicePlatform.WinUI)
+                {
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Task.Delay(200);
+                        await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+                    });
+                }
+                else
+                {
+                    await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                }
             }
             else
             {
