@@ -23,8 +23,15 @@ namespace Spidedex.ViewModel
         public MySpidersPageViewModel(DataAccessService dataAccessService)
         {
             //Title = "Welcome!";
-            this._dataAccessService = dataAccessService; 
-            GetSpidersCommand.ExecuteAsync(null);
+            this._dataAccessService = dataAccessService;
+            try
+            {
+                GetSpidersCommand.ExecuteAsync(null);
+            }
+            catch (Exception)
+            {
+                // User is not logged in
+            }
         }
 
         [RelayCommand]

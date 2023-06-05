@@ -15,6 +15,14 @@ namespace Spidedex.ViewModel
 {
     public partial class LoginPageViewModel : BaseViewModel
     {
+
+        private MySpidersPageViewModel spidersPageViewModel;
+
+        public LoginPageViewModel(MySpidersPageViewModel spidersPageViewModel)
+        {
+            this.spidersPageViewModel = spidersPageViewModel;
+        }
+
         public string apiKey = "AIzaSyBxH3egBwl1T5ukQhRHga7OerGPc-2lCDA ";
 
         [ObservableProperty]
@@ -23,9 +31,19 @@ namespace Spidedex.ViewModel
         [ObservableProperty]
         private string _password;
 
+        private bool isLoggingIn;
+
         [RelayCommand]
         async void Login()
         {
+
+            if (isLoggingIn)
+            {
+                return;
+            }
+
+            // Disable the login button
+            isLoggingIn = true;
 
             var userDetails = new Model.User
             {
@@ -40,7 +58,6 @@ namespace Spidedex.ViewModel
                     var response = await authenticationProvider.SignInWithEmailAndPasswordAsync(Email, Password);
                     var serializedContent = JsonConvert.SerializeObject(response);
                     Preferences.Set(("token"), serializedContent);
-
                     if (Preferences.ContainsKey(nameof(App.UserDetails)))
                     {
                         Preferences.Remove(nameof(App.UserDetails));
@@ -51,6 +68,7 @@ namespace Spidedex.ViewModel
                     Preferences.Set(nameof(App.UserDetails), userDetailsString);
                     App.UserDetails = userDetails;
                     AppShell.Current.FlyoutHeader = new HeaderControl();
+                    spidersPageViewModel.GetSpidersCommand.ExecuteAsync(null);
                     await Shell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
 
                 }
@@ -71,6 +89,10 @@ namespace Spidedex.ViewModel
                         await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
                         return;
                     }
+                }
+                finally
+                {
+                    isLoggingIn = false;
                 }
             }
         }
