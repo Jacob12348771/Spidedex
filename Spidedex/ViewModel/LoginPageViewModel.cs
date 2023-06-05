@@ -31,19 +31,20 @@ namespace Spidedex.ViewModel
         [ObservableProperty]
         private string _password;
 
-        private bool isLoggingIn;
+        [ObservableProperty]
+        private bool _IsLoading;
 
         [RelayCommand]
         async void Login()
         {
 
-            if (isLoggingIn)
+            if (IsLoading)
             {
                 return;
             }
 
             // Disable the login button
-            isLoggingIn = true;
+            IsLoading = true;
 
             var userDetails = new Model.User
             {
@@ -92,7 +93,7 @@ namespace Spidedex.ViewModel
                 }
                 finally
                 {
-                    isLoggingIn = false;
+                    IsLoading = false;
                 }
             }
         }
