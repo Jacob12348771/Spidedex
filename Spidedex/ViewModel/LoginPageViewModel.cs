@@ -43,9 +43,6 @@ namespace Spidedex.ViewModel
                 return;
             }
 
-            // Disable the login button
-            IsLoading = true;
-
             var userDetails = new Model.User
             {
                 Email = Email,
@@ -53,6 +50,7 @@ namespace Spidedex.ViewModel
 
             if (!string.IsNullOrWhiteSpace(Email) && !string.IsNullOrWhiteSpace(Password))
             {
+                IsLoading = true;
                 try
                 {
                     var authenticationProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
@@ -85,6 +83,11 @@ namespace Spidedex.ViewModel
                         await App.Current.MainPage.DisplayAlert("Error", "Invalid password", "OK");
                         return;
                     }
+                    else if (ex.Message.Contains("InvalidEmailAddress"))
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", "Invalid email address", "OK");
+                        return;
+                    }
                     else
                     {
                         await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
@@ -93,6 +96,8 @@ namespace Spidedex.ViewModel
                 }
                 finally
                 {
+                    Email = string.Empty;
+                    Password = string.Empty;
                     IsLoading = false;
                 }
             }

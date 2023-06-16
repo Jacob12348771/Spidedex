@@ -2,7 +2,8 @@
 <ContentPage Shell.NavBarIsVisible="False"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Spidedex.View.LoginPage">
+             x:Class="Spidedex.View.LoginPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
 
     <ContentPage.Resources>
         <Style TargetType="Button" x:Key="HyperlinkButtonStyle">
@@ -10,67 +11,86 @@
             <Setter Property="TextColor" Value="Blue" />
             <Setter Property="FontSize" Value="14" />
         </Style>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <AbsoluteLayout>
+        <Grid IsVisible="{Binding IsLoading}"
+              AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+              BackgroundColor="#80000000">
+            <ActivityIndicator Color="White"
+                               IsRunning="True"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,100,100" />
+        </Grid>
+        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
             <Image Source="rsz_web_left.png" Aspect="AspectFill"
                    Grid.Row="0" Grid.Column="0"></Image>
-     
+
             <Image Source="rsz_web_right.png" Aspect="AspectFill"
                    Grid.Row="0" Grid.Column="1"></Image>
-       
 
-        <VerticalStackLayout
+
+            <VerticalStackLayout
             Grid.Row="1"
             Grid.ColumnSpan="2"
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+            IsVisible="{Binding IsLoading, Converter={StaticResource InvertedBoolConverter}}">
 
-            <VerticalStackLayout Spacing="30">
-                <Label Text="Spidedex" FontSize="30" TextColor="Black" HorizontalTextAlignment="Center"></Label>
-                <Label Text="Login to view spiders care facts along with care guides to follow!" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
-            </VerticalStackLayout>
+                <VerticalStackLayout Spacing="30">
+                    <Label Text="Spidedex" FontSize="30" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Login to view spiders care facts along with care guides to follow!" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                </VerticalStackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
-                    <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
-                </Frame>
-                <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
-                </Frame>
-            </StackLayout>
+                <StackLayout IsEnabled="True">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
+                            <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
+                        </Frame>
+                        <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                            <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
+                        </Frame>
+                    </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
-                    <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
-                </Frame>
-                <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" IsPassword="True" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
-                </Frame>
-            </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="30">
+                            <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
+                        </Frame>
+                        <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                            <Entry Margin="20, 0, 0, 0" IsPassword="True" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
 
-            <Button Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
+                <Button IsEnabled="False" Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
 
-            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                <Button Text="Sign Up" FontSize="18" TextColor="#AD7BFF"
+                <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+                    <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Button Text="Sign Up" FontSize="18" TextColor="#AD7BFF"
                     Style="{StaticResource HyperlinkButtonStyle}"
                     Command="{Binding NavigateToRegisterCommand}" />
-            </StackLayout>
-        </VerticalStackLayout>
-    </Grid>
+                </StackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </AbsoluteLayout>
 
 </ContentPage>
