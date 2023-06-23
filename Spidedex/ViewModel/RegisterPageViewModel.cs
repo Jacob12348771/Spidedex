@@ -70,6 +70,11 @@ namespace Spidedex.ViewModel
                         return;
                     }
                 }
+                finally
+                {
+                    Email = string.Empty;
+                    Password = string.Empty;
+                }
             }
         }
 

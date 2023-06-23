@@ -27,12 +27,18 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<LoginPageViewModel>();
+
 		builder.Services.AddSingleton<RegisterPage>();
 		builder.Services.AddSingleton<RegisterPageViewModel>();
+
 		builder.Services.AddSingleton<MySpidersPage>();
 		builder.Services.AddSingleton<MySpidersPageViewModel>();
+
 		builder.Services.AddSingleton<LoadingPage>();
 		builder.Services.AddSingleton<LoadingPageViewModel>();
+
+		builder.Services.AddTransient<AddUpdateMySpidersPage>();
+		builder.Services.AddTransient<AddUpdateMySpidersPageViewModel>();
 
         return builder.Build();
 	}

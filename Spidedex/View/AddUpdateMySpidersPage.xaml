@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spidedex.View.AddUpdateMySpidersPage"
+             Title="Add or Update a Spider">
+    <StackLayout Margin="18">
+        <Label Text="Name" FontSize="16"></Label>
+        <Entry Placeholder="Name"></Entry>
+        <BoxView HeightRequest="0.8" Color="#AD7BFF"></BoxView>
+
+        <Label Text="Species" FontSize="16"></Label>
+        <Entry Placeholder="Species"></Entry>
+        <BoxView HeightRequest="0.8" Color="#AD7BFF"></BoxView>
+
+        <Label Text="Description" FontSize="16"></Label>
+        <Entry Placeholder="Name"></Entry>
+        <BoxView HeightRequest="0.8" Color="#AD7BFF"></BoxView>
+
+        <Label Text="Name" FontSize="16"></Label>
+        <Entry Placeholder="Name"></Entry>
+        <BoxView HeightRequest="0.8" Color="#AD7BFF"></BoxView>
+
+        <Label Text="Name" FontSize="16"></Label>
+        <Entry Placeholder="Name"></Entry>
+        <BoxView HeightRequest="0.8" Color="#AD7BFF"></BoxView>
+
+        <Label Text="Name" FontSize="16"></Label>
+        <Entry Placeholder="Name"></Entry>
+        <BoxView HeightRequest="0.8" Color="#AD7BFF"></BoxView>
+    </StackLayout>
+</ContentPage>
