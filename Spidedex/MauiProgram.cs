@@ -23,7 +23,7 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-		builder.Services.AddSingleton<DataAccessService>();
+		builder.Services.AddSingleton<IDataAccessService, DataAccessService>();
 
 		builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<LoginPageViewModel>();

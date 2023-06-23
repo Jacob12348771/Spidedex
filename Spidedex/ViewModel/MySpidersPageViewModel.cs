@@ -15,13 +15,13 @@ namespace Spidedex.ViewModel
 {
     public partial class MySpidersPageViewModel : BaseViewModel
     {
-        DataAccessService _dataAccessService;
+        IDataAccessService _dataAccessService;
         public ObservableCollection<Spider> Spiders { get; } = new();
 
         [ObservableProperty]
         bool isRefreshing;
 
-        public MySpidersPageViewModel(DataAccessService dataAccessService)
+        public MySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             this._dataAccessService = dataAccessService;
 

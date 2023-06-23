@@ -12,7 +12,7 @@ namespace Spidedex.ViewModel
 {
     public partial class AddUpdateMySpidersPageViewModel : BaseViewModel
     {
-        private readonly IDataAccessService _dataAccessService;
+        IDataAccessService _dataAccessService;
         public AddUpdateMySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             _dataAccessService = dataAccessService;
