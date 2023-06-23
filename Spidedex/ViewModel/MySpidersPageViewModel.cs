@@ -24,11 +24,6 @@ namespace Spidedex.ViewModel
         public MySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             this._dataAccessService = dataAccessService;
-
-            if (Preferences.ContainsKey(nameof(App.UserDetails)))
-            {
-                GetSpidersCommand.ExecuteAsync(null);
-            }
         }
 
         [RelayCommand]
@@ -40,7 +35,6 @@ namespace Spidedex.ViewModel
             {
                 IsBusy = true;
                 var spiders = await _dataAccessService.GetSpidersAsync(App.UserDetails.Email);
-                Thread.Sleep(1000);
                 if (Spiders.Count != 0)
                 {
                     Spiders.Clear();
@@ -66,6 +60,16 @@ namespace Spidedex.ViewModel
         async Task AddUpdateMySpider()
         {
             await AppShell.Current.GoToAsync(nameof(AddUpdateMySpidersPage));
+        }
+
+        [RelayCommand]
+        async Task EditSpider(Spider spider)
+        {
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "SpiderContents", spider }
+            };
+            await AppShell.Current.GoToAsync($"{nameof(AddUpdateMySpidersPage)}", navigationParameter);
         }
     }
 }

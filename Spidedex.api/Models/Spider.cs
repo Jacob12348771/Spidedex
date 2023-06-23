@@ -2,7 +2,7 @@
 {
     public enum Tempereament
     {
-        Docile, Neutral, Aggressive, Skittsh, Calm
+        Docile, Neutral, Aggressive, Skittish, Calm
     }
     public int Id { get; set; }
     public DateOnly DateObtained { get; set; }
