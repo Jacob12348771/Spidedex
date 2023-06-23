@@ -42,75 +42,117 @@ app.UseHttpsRedirection();
 // Get all spiders
 app.MapGet("/spiders", async (SpidedexDbContext dbContext) =>
 {
-    var spiders = await dbContext.Spiders.ToListAsync();
-    return spiders;
+    try
+    {
+        var spiders = await dbContext.Spiders.ToListAsync();
+        return Results.Ok(spiders);
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
 });
 
 // Get spider by id
 app.MapGet("/spiders/{id}", async (SpidedexDbContext dbContext, int id) =>
 {
-    var spider = await dbContext.Spiders.FindAsync(id);
-    return spider is null ? Results.NotFound() : Results.Ok(spider);
+    try
+    {
+        var spider = await dbContext.Spiders.FindAsync(id);
+        return spider is null ? Results.NotFound() : Results.Ok(spider);
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
 });
 
 // Get spiders by user
 app.MapGet("/spiders/foruser/{userdata}", async (SpidedexDbContext dbContext, string userdata) =>
 {
-    var spider = await dbContext.Spiders.Where(s => s.UserInfo == userdata).ToListAsync();
-    return spider is null ? Results.NotFound() : Results.Ok(spider);
+    try
+    {
+        var spider = await dbContext.Spiders.Where(s => s.UserInfo == userdata).ToListAsync();
+        return spider is null ? Results.NotFound() : Results.Ok(spider);
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
 });
 
 // Update spider
 app.MapPut("/spiders/{id}", async (SpidedexDbContext dbContext, int id, Spider spider) =>
 {
-    if (id != spider.Id)
+    try
+    {
+        if (id != spider.Id)
+        {
+            return Results.BadRequest();
+        }
+
+        dbContext.Entry(spider).State = EntityState.Modified;
+
+        try
+        {
+            await dbContext.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!dbContext.Spiders.Any(s => s.Id == id))
+            {
+                return Results.NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return Results.NoContent();
+    }
+    catch (Exception)
     {
         return Results.BadRequest();
     }
-
-    dbContext.Entry(spider).State = EntityState.Modified;
-
-    try
-    {
-        await dbContext.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException)
-    {
-        if (!dbContext.Spiders.Any(s => s.Id == id))
-        {
-            return Results.NotFound();
-        }
-        else
-        {
-            throw;
-        }
-    }
-
-    return Results.NoContent();
 });
 
 // Create spider
 app.MapPost("/spiders", async (SpidedexDbContext dbContext, Spider spider) =>
 {
-    dbContext.Spiders.Add(spider);
-    await dbContext.SaveChangesAsync();
+    try
+    {
+        dbContext.Spiders.Add(spider);
+        await dbContext.SaveChangesAsync();
 
-    return Results.Created($"/spiders/{spider.Id}", spider);
+        return Results.Created($"/spiders/{spider.Id}", spider);
+    }
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
 });
 
 // Delete spider
 app.MapDelete("/spiders/{id}", async (SpidedexDbContext dbContext, int id) =>
 {
-    var spider = await dbContext.Spiders.FindAsync(id);
-    if (spider is null)
+    try
     {
-        return Results.NotFound();
+        var spider = await dbContext.Spiders.FindAsync(id);
+        if (spider is null)
+        {
+            return Results.NotFound();
+        }
+
+        dbContext.Spiders.Remove(spider);
+        await dbContext.SaveChangesAsync();
+
+        return Results.NoContent();
     }
-
-    dbContext.Spiders.Remove(spider);
-    await dbContext.SaveChangesAsync();
-
-    return Results.NoContent();
+    catch (Exception)
+    {
+        return Results.BadRequest();
+    }
 });
 
 app.Run();

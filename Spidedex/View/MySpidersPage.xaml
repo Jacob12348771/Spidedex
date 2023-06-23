@@ -4,8 +4,28 @@
              x:Class="Spidedex.View.MySpidersPage"
              xmlns:model="clr-namespace:Spidedex.Model;assembly=Spidedex"
              xmlns:viewmodel="clr-namespace:Spidedex.ViewModel"
-             x:DataType="viewmodel:MySpidersPageViewModel">
-    <Grid ColumnSpacing="1" RowSpacing="1" Padding="5">
+             x:DataType="viewmodel:MySpidersPageViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        <Grid IsVisible="{Binding IsBusy}"
+              AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+              BackgroundColor="#80000000">
+            <ActivityIndicator Color="White"
+                               IsRunning="True"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,100,100" />
+        </Grid>
+        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -16,9 +36,25 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <RefreshView Grid.Row="4"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <HorizontalStackLayout>
+                    <Label Padding="12" Grid.Column="0" Text="Add and Track Spider Details" FontSize="20" FontAttributes="Bold" />
+                    <ImageButton Grid.Column="1" HorizontalOptions="EndAndExpand" Margin="10, 0" Command="{Binding AddUpdateMySpiderCommand}">
+                        <ImageButton.Source>
+                            <FileImageSource File="plus.png" />
+                        </ImageButton.Source>
+                    </ImageButton>
+                </HorizontalStackLayout>
+            </Grid>
+            <RefreshView Grid.Row="4"
                      Command="{Binding GetSpidersCommand}" 
-                     IsRefreshing="{Binding IsRefreshing}">
+                     IsRefreshing="{Binding IsRefreshing}"
+                     >
+            <StackLayout>
             <CollectionView ItemsSource="{Binding Spiders}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Spider">
@@ -35,6 +71,8 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
+                </StackLayout>
+            </RefreshView>
     </Grid>
+    </AbsoluteLayout>
 </ContentPage>

@@ -9,6 +9,7 @@ using Spidedex.Services;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Spidedex.View;
 
 namespace Spidedex.ViewModel
 {
@@ -39,7 +40,7 @@ namespace Spidedex.ViewModel
             {
                 IsBusy = true;
                 var spiders = await _dataAccessService.GetSpidersAsync(App.UserDetails.Email);
-
+                Thread.Sleep(1000);
                 if (Spiders.Count != 0)
                 {
                     Spiders.Clear();
@@ -59,6 +60,12 @@ namespace Spidedex.ViewModel
                 IsBusy = false;
                 IsRefreshing = false;
             }
+        }
+
+        [RelayCommand]
+        async Task AddUpdateMySpider()
+        {
+            await AppShell.Current.GoToAsync(nameof(AddUpdateMySpidersPage));
         }
     }
 }
