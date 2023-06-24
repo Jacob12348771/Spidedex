@@ -72,7 +72,6 @@ namespace Spidedex.Services
         public async Task<Spider> GetSpiderAsync(int spiderId)
         {
             var response = await _httpClient.GetAsync($"/spiders/{spiderId}");
-
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -86,20 +85,27 @@ namespace Spidedex.Services
 
         public async Task<IEnumerable<Spider>> GetSpidersAsync(string userDetails)
         {
-            var spiderList = new List<Spider>();
-            if (userDetails != null)
+            try
             {
-                var response = await _httpClient.GetAsync($"/spiders/foruser/{userDetails}");
-
-                if (response.IsSuccessStatusCode)
+                var spiderList = new List<Spider>();
+                if (userDetails != null)
                 {
-                    spiderList = await response.Content.ReadFromJsonAsync<List<Spider>>();
+                    var response = await _httpClient.GetAsync($"/spiders/foruser/{userDetails}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        spiderList = await response.Content.ReadFromJsonAsync<List<Spider>>();
+                    }
+                    return await Task.FromResult(spiderList);
                 }
-                return await Task.FromResult(spiderList);
+                else
+                {
+                    return await Task.FromResult(spiderList);
+                }
             }
-            else
+            catch (Exception)
             {
-                return await Task.FromResult(spiderList);
+                return await Task.FromResult<IEnumerable<Spider>>(null);
             }
         }
     }
