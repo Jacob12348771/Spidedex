@@ -24,6 +24,11 @@ namespace Spidedex.ViewModel
         public MySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             this._dataAccessService = dataAccessService;
+
+            if (Preferences.ContainsKey(nameof(App.UserDetails)))
+            {
+                GetSpidersCommand.ExecuteAsync(null);
+            }
         }
 
         [RelayCommand]

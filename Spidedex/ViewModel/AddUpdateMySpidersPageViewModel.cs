@@ -35,7 +35,7 @@ namespace Spidedex.ViewModel
                     Description = SpiderContents.Description,
                     Size = SpiderContents.Size,
                     Diet = SpiderContents.Diet,
-                    //Temperament = (Model.Spider.Tempereament)Enum.Parse(typeof(Model.Spider.Tempereament), SpiderContents.Temperament),
+                    Temperament = SpiderContents.Temperament,
                     UserInfo = App.UserDetails.Email
                 });
 
