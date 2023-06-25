@@ -99,5 +99,41 @@ namespace Spidedex.ViewModel
                 IsLoading = false;
             }
         }
+
+        [RelayCommand]
+        public async void DeleteSpider(Spider spider)
+        {
+            try
+            {
+                if (IsLoading)
+                {
+                    return;
+                }
+
+                var userChoice = await AppShell.Current.DisplayAlert("Delete Spider", "Are you sure you want to delete this spider?", "Yes", "No");
+
+                if (!userChoice)
+                {
+                    IsLoading = false;
+                    return;
+                }
+                else
+                {
+                    IsLoading = true;
+                    bool response = await _dataAccessService.DeleteSpiderAsync(spider.Id);
+
+                    await AppShell.Current.DisplayAlert("Success", "Spider has been successfully deleted", "Ok");
+                    await AppShell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
+                }
+            }
+            catch (Exception)
+            {
+                await AppShell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
     }
 }

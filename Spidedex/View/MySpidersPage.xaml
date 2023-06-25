@@ -43,7 +43,7 @@
                 </Grid.ColumnDefinitions>
                 <HorizontalStackLayout>
                     <Label Padding="12" Grid.Column="0" Text="Add and Track Spider Details" FontSize="20" FontAttributes="Bold" />
-                    <ImageButton Grid.Column="1" HorizontalOptions="EndAndExpand" Margin="10, 0" Command="{Binding AddUpdateMySpiderCommand}">
+                    <ImageButton Grid.Column="1" HorizontalOptions="EndAndExpand" Command="{Binding AddUpdateMySpiderCommand}">
                         <ImageButton.Source>
                             <FileImageSource File="plus.png" />
                         </ImageButton.Source>
