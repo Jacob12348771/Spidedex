@@ -20,10 +20,33 @@ namespace Spidedex.ViewModel
         [ObservableProperty]
         private bool _IsLoading;
 
+        [ObservableProperty]
+        private bool _EntryExists;
+
         IDataAccessService _dataAccessService;
         public AddUpdateMySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             _dataAccessService = dataAccessService;
+            InitializeAsync();
+        }
+
+        private async Task InitializeAsync()
+        {
+            await QuerySpiderContentsExist();
+        }
+
+        private async Task QuerySpiderContentsExist()
+        {
+            await Task.Delay(100);
+
+            if (SpiderContents.Id > 0)
+            {
+                EntryExists = true;
+            }
+            else
+            {
+                EntryExists = false;
+            }
         }
 
         [RelayCommand]

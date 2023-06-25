@@ -38,6 +38,20 @@
         </Grid>
         <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout Margin="20" IsVisible="{Binding IsLoading, Converter={StaticResource InvertedBoolConverter}}">
+                <Grid IsVisible="{Binding EntryExists}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <HorizontalStackLayout>
+                        <Label Padding="12" Grid.Column="0" Text="Delete spider?" FontSize="20" FontAttributes="Bold" />
+                        <ImageButton Grid.Column="1" HorizontalOptions="EndAndExpand" Margin="10, 0" Command="{Binding AddUpdateMySpiderCommand}">
+                            <ImageButton.Source>
+                                <FileImageSource File="delete.png" />
+                            </ImageButton.Source>
+                        </ImageButton>
+                    </HorizontalStackLayout>
+                </Grid>
                 <VerticalStackLayout>
                     <Label Text="Name (Required)" Style="{StaticResource SectionLabelStyle}" />
                     <Entry Text="{Binding SpiderContents.Name}" Placeholder="Enter Name" Style="{StaticResource EntryStyle}" />
