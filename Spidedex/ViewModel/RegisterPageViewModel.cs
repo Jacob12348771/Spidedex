@@ -26,11 +26,19 @@ namespace Spidedex.ViewModel
         [ObservableProperty]
         private string _confirmPassword;
 
+        [ObservableProperty]
+        private bool _IsLoading;
+
         [RelayCommand]
         async void Register()
         {
+            if (IsLoading)
+            {
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(Email) && !string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(ConfirmPassword))
             {
+                IsLoading = true;
                 if (Password != ConfirmPassword)
                 {
                     await App.Current.MainPage.DisplayAlert("Error", "Passwords do not match", "OK");
@@ -72,6 +80,7 @@ namespace Spidedex.ViewModel
                 }
                 finally
                 {
+                    IsLoading = false;
                     Email = string.Empty;
                     Password = string.Empty;
                 }

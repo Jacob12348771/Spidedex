@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Spidedex.Helper;
 using Spidedex.Model;
 using Spidedex.Services;
 using Spidedex.View;
@@ -27,7 +28,7 @@ namespace Spidedex.ViewModel
         public AddUpdateMySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             _dataAccessService = dataAccessService;
-            InitializeAsync();
+            _ = InitializeAsync();
         }
 
         private async Task InitializeAsync()
@@ -54,6 +55,12 @@ namespace Spidedex.ViewModel
         {
             try
             {
+                if (!NetworkConnectivity.IsConnected())
+                {
+                    await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                                               "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
+                    return;
+                }
                 if (IsLoading)
                 {
                     return;
@@ -105,6 +112,12 @@ namespace Spidedex.ViewModel
         {
             try
             {
+                if (!NetworkConnectivity.IsConnected())
+                {
+                    await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                                               "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
+                    return;
+                }
                 if (IsLoading)
                 {
                     return;

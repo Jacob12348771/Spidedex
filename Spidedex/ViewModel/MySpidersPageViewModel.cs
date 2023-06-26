@@ -10,6 +10,7 @@ using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Spidedex.View;
+using Spidedex.Helper;
 
 namespace Spidedex.ViewModel
 {
@@ -34,6 +35,12 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async Task GetSpidersAsync()
         {
+            if (!NetworkConnectivity.IsConnected())
+            {
+                await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                                           "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
+                return;
+            }
             if (IsBusy)
                 return;
             try
@@ -52,7 +59,8 @@ namespace Spidedex.ViewModel
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                await Shell.Current.DisplayAlert("Error", ex.ToString(), "OK");
+                await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                    "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
             }
             finally
             {

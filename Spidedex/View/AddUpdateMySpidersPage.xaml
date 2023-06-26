@@ -54,7 +54,7 @@
                 </Grid.ColumnDefinitions>
                 <HorizontalStackLayout>
                     <Label Padding="20" Grid.Column="0" Text="Delete spider?" FontSize="20" FontAttributes="Bold" />
-                    <ImageButton Grid.Column="1" HorizontalOptions="EndAndExpand" Command="{Binding DeleteSpider}">
+                    <ImageButton Grid.Column="1" HorizontalOptions="EndAndExpand" Command="{Binding DeleteSpiderCommand}" CommandParameter="{Binding SpiderContents}">
                         <ImageButton.Source>
                             <FileImageSource File="delete.png" />
                         </ImageButton.Source>
