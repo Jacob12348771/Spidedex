@@ -114,5 +114,11 @@ namespace Spidedex.ViewModel
         {
             await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
+
+        [RelayCommand]
+        async void NavigateToResetPassword()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(ResetPasswordPage)}");
+        }
     }
 }

@@ -27,6 +27,13 @@
         FlyoutItemIsVisible="False"
         Shell.FlyoutBehavior="Disabled"/>
 
+    <ShellContent
+        Title="Reset Password Page"
+        ContentTemplate="{DataTemplate local:ResetPasswordPage}"
+        Route="ResetPasswordPage"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"/>
+
     <FlyoutItem Route="MySpidersPage" FlyoutDisplayOptions="AsMultipleItems">
         
         <ShellContent

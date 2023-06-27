@@ -31,7 +31,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<RegisterPage>();
 		builder.Services.AddSingleton<RegisterPageViewModel>();
 
-		builder.Services.AddSingleton<MySpidersPage>();
+        builder.Services.AddSingleton<ResetPasswordPage>();
+        builder.Services.AddSingleton<ResetPasswordPageViewModel>();
+
+        builder.Services.AddSingleton<MySpidersPage>();
 		builder.Services.AddSingleton<MySpidersPageViewModel>();
 
 		builder.Services.AddSingleton<LoadingPage>();
