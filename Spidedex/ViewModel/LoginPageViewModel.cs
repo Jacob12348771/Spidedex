@@ -41,7 +41,7 @@ namespace Spidedex.ViewModel
             if (!NetworkConnectivity.IsConnected())
             {
                 await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
-                                           "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
+                                           "Please check connectivity settings and try again.", "OK");
                 return;
             }
             if (IsLoading)

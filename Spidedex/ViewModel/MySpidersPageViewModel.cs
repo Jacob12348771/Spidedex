@@ -11,6 +11,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Spidedex.View;
 using Spidedex.Helper;
+using Newtonsoft.Json;
 
 namespace Spidedex.ViewModel
 {
@@ -25,11 +26,6 @@ namespace Spidedex.ViewModel
         public MySpidersPageViewModel(IDataAccessService dataAccessService)
         {
             this._dataAccessService = dataAccessService;
-
-            if (Preferences.ContainsKey(nameof(App.UserDetails)))
-            {
-                GetSpidersCommand.ExecuteAsync(null);
-            }
         }
 
         [RelayCommand]
@@ -37,8 +33,18 @@ namespace Spidedex.ViewModel
         {
             if (!NetworkConnectivity.IsConnected())
             {
+                // Check if spiders are saved locally.
+                var savedSpiders = Preferences.Get("SavedSpiders", string.Empty);
+                if (savedSpiders != string.Empty && Spiders.Count == 0)
+                {
+                    var spiders = JsonConvert.DeserializeObject<List<Spider>>(savedSpiders);
+                    foreach (var spider in spiders)
+                    {
+                        Spiders.Add(spider);
+                    }
+                }
                 await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
-                                           "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
+                                           "Please check connectivity settings and try again.", "OK");
                 return;
             }
             if (IsBusy)
@@ -55,12 +61,14 @@ namespace Spidedex.ViewModel
                 {
                     Spiders.Add(spider);
                 }
+
+                var serializedSpiders = JsonConvert.SerializeObject(Spiders.ToList());
+                Preferences.Set("SavedSpiders", serializedSpiders);
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Debug.WriteLine(ex);
-                await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
-                    "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
+                await AppShell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
             }
             finally
             {
