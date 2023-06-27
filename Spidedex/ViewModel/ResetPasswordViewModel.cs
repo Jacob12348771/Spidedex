@@ -36,39 +36,43 @@ namespace Spidedex.ViewModel
                                            "Please check connectivity settings and try again.", "OK");
                 return;
             }
-            if (IsLoading)
+            if (!string.IsNullOrWhiteSpace(Email))
             {
-                return;
-            }
-            try
-            {
-                var authenticationProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
-                await authenticationProvider.SendPasswordResetEmailAsync(Email);
-                await App.Current.MainPage.DisplayAlert("Success", "Password reset email sent", "OK");
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message.Contains("UnkownEmailAddress"))
+                IsLoading = true;
+                if (IsLoading)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "User does not exist", "OK");
                     return;
                 }
-                else if (ex.Message.Contains("InvalidEmailAddress"))
+                try
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "Invalid email address", "OK");
-                    return;
+                    var authenticationProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+                    await authenticationProvider.SendPasswordResetEmailAsync(Email);
+                    await App.Current.MainPage.DisplayAlert("Success", "Password reset email sent", "OK");
+                    await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
                 }
-                else
+                catch (Exception ex)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
-                    return;
+                    if (ex.Message.Contains("UnkownEmailAddress"))
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", "User does not exist", "OK");
+                        return;
+                    }
+                    else if (ex.Message.Contains("InvalidEmailAddress"))
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", "Invalid email address", "OK");
+                        return;
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                        return;
+                    }
                 }
-            }
-            finally
-            {
-                IsLoading = false;
-                Email = string.Empty;
+                finally
+                {
+                    IsLoading = false;
+                    Email = string.Empty;
+                }
             }
         }
 
