@@ -63,7 +63,7 @@
 
     <Shell.FlyoutFooter>
         <StackLayout Padding="20">
-            <Button Text="Sign Out" Command="{Binding SignOutCommand}"></Button>
+            <Button FontSize="20" Text="Sign Out" Command="{Binding SignOutCommand}"></Button>
         </StackLayout>
     </Shell.FlyoutFooter>
     

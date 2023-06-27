@@ -57,8 +57,8 @@
             IsVisible="{Binding IsLoading, Converter={StaticResource InvertedBoolConverter}}">
 
                 <VerticalStackLayout Spacing="30">
-                    <Label Text="Spidedex" FontSize="30" TextColor="Black" HorizontalTextAlignment="Center"></Label>
-                    <Label Text="Login to view spiders care facts along with care guides to follow!" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Spidedex" FontSize="35" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Login to view spiders care facts along with care guides to follow!" FontSize="25" TextColor="Black" HorizontalTextAlignment="Center"></Label>
                 </VerticalStackLayout>
 
                 <StackLayout IsEnabled="True">
@@ -67,7 +67,7 @@
                             <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
                         </Frame>
                         <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                            <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
+                            <Entry FontSize="18" Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
                         </Frame>
                     </StackLayout>
 
@@ -76,24 +76,24 @@
                             <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
                         </Frame>
                         <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                            <Entry Margin="20, 0, 0, 0" IsPassword="True" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
+                            <Entry FontSize="18" Margin="20, 0, 0, 0" IsPassword="True" VerticalOptions="Center" Placeholder="Password" Text="{Binding Password}"/>
                         </Frame>
                     </StackLayout>
                 </StackLayout>
 
-                <Button Margin="0,0,0,-20" IsEnabled="False" Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
+                <Button FontSize="20" Margin="0,0,0,-20" IsEnabled="False" Text="Login" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding LoginCommand}"></Button>
 
                 <VerticalStackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,-10">
-                        <Label Text="Forgot your password?" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                        <Button Text="Reset" FontSize="16" TextColor="#AD7BFF"
+                        <Label Text="Forgot your password? " FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Button Text="Reset " FontSize="18" TextColor="#AD7BFF"
                     Style="{StaticResource HyperlinkButtonStyle}"
                     Command="{Binding NavigateToResetPasswordCommand}" />
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,-10">
-                        <Label Text="Don't have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                        <Button Text="Sign Up" FontSize="18" TextColor="#AD7BFF"
+                        <Label Text="Don't have an account? " FontSize="20" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Button Text="Sign Up " FontSize="20" TextColor="#AD7BFF"
                     Style="{StaticResource HyperlinkButtonStyle}"
                     Command="{Binding NavigateToRegisterCommand}" />
                     </StackLayout>

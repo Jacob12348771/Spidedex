@@ -48,6 +48,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Caveat-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Caveat-Medium.ttf" />
+	  <None Remove="Resources\Fonts\Caveat-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Caveat-SemiBold.ttf" />
 	  <None Remove="Resources\Images\clipboard.svg" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\globe.svg" />
@@ -95,9 +99,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\LoadingPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ResetPasswordPage.xaml">

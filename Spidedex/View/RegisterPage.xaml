@@ -41,8 +41,8 @@
             VerticalOptions="Center">
 
             <VerticalStackLayout Spacing="30">
-                <Label Text="Spidedex" FontSize="30" TextColor="Black" HorizontalTextAlignment="Center"></Label>
-                <Label Text="Register to view spiders care facts along with care guides to follow!" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Spidedex" FontSize="35" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Register to view spiders care facts along with care guides to follow!" FontSize="25" TextColor="Black" HorizontalTextAlignment="Center"></Label>
             </VerticalStackLayout>
 
             <StackLayout Orientation="Horizontal">
@@ -50,7 +50,7 @@
                     <Image Source="user.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
+                    <Entry FontSize="18" Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
                 </Frame>
             </StackLayout>
 
@@ -59,7 +59,7 @@
                     <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+                    <Entry FontSize="18" Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
                 </Frame>
             </StackLayout>
 
@@ -68,15 +68,15 @@
                     <Image Source="lock.svg" HeightRequest="20" WidthRequest="20"></Image>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20, 0, 0, 0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Confirm Password" IsPassword="True" Text="{Binding ConfirmPassword}"/>
+                    <Entry FontSize="18" Margin="20, 0, 0, 0" VerticalOptions="Center" Placeholder="Confirm Password" IsPassword="True" Text="{Binding ConfirmPassword}"/>
                 </Frame>
             </StackLayout>
 
-            <Button Text="Register" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding RegisterCommand}"></Button>
+            <Button FontSize="20" Text="Register" BackgroundColor="#AD7BFF" TextColor="White" CornerRadius="28" Command="{Binding RegisterCommand}"></Button>
 
             <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Already have an account?" FontSize="18" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                <Button Text="Sign In" FontSize="18" TextColor="#AD7BFF"
+                <Label Text="Already have an account?" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button Text="Sign In" FontSize="20" TextColor="#AD7BFF"
                     Style="{StaticResource HyperlinkButtonStyle}"
                     Command="{Binding NavigateToLoginCommand}" />
             </StackLayout>
