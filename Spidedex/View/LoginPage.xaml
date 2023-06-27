@@ -53,7 +53,7 @@
             Grid.ColumnSpan="2"
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center"
+            VerticalOptions="StartAndExpand"
             IsVisible="{Binding IsLoading, Converter={StaticResource InvertedBoolConverter}}">
 
                 <VerticalStackLayout Spacing="30">
