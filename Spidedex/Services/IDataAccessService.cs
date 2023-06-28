@@ -13,5 +13,6 @@ namespace Spidedex.Services
         Task<bool> AddUpdateSpiderAsync(Spider spider);
         Task<bool> DeleteSpiderAsync(int spiderId);
         Task<Spider> GetSpiderAsync(int spiderId);
+        Task<List<SpiderFactSheet>> GetSpiderFactSheetsAsync();
     }
 }

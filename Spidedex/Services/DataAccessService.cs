@@ -13,6 +13,7 @@ namespace Spidedex.Services
     {
         public readonly string _baseUri;
         private readonly HttpClient _httpClient;
+        List<SpiderFactSheet> spiderFactSheets = new List<SpiderFactSheet>();
         public DataAccessService()
         {
             _baseUri = GetBaseAdress();
@@ -106,6 +107,23 @@ namespace Spidedex.Services
             catch (Exception)
             {
                 return await Task.FromResult<IEnumerable<Spider>>(null);
+            }
+        }
+
+        public async Task<List<SpiderFactSheet>> GetSpiderFactSheetsAsync()
+        {
+            try
+            {
+                using var jsonStream = await FileSystem.OpenAppPackageFileAsync("SpiderFactSheets.json");
+                using var reader = new StreamReader(jsonStream);
+                var json = await reader.ReadToEndAsync();
+                spiderFactSheets = JsonConvert.DeserializeObject<List<SpiderFactSheet>>(json);
+
+                return await Task.FromResult(spiderFactSheets);
+            }
+            catch (Exception)
+            {
+                return await Task.FromResult<List<SpiderFactSheet>>(null);
             }
         }
     }

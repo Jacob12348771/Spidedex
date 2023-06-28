@@ -3,7 +3,7 @@
     "Name": "Mexican Red Rump",
     "Location": "Mexico & Central America",
     "Lat": 23.634501,
-    "Lon": -102.552788,
+    "Long": -102.552788,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
     "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/red-rump.jpg",
     "ScientificName": "Tliltocatl vagans"
@@ -12,7 +12,7 @@
     "Name": "Indian Ornamental",
     "Location": "India",
     "Lat": 20.593683,
-    "Lon": 78.962883,
+    "Long": 78.962883,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
     "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/indian-ornamental.jpg",
     "ScientificName": "Poecilotheria regalis"
@@ -21,7 +21,7 @@
     "Name": "Curly Hair",
     "Location": "Nicaragua & Costa Rica",
     "Lat": 12.865416,
-    "Lon": -85.207230,
+    "Long": -85.207230,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
     "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/curly-hair.jpg",
     "ScientificName": "Tliltocatl albopilosus"
@@ -30,7 +30,7 @@
     "Name": "Arizona Blonde",
     "Location": "Southwestern United States",
     "Lat": 34.519939,
-    "Lon": -105.870087,
+    "Long": -105.870087,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
     "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/arizona-blonde.jpg",
     "ScientificName": "Aphonopelma chalcodes"
@@ -39,7 +39,7 @@
     "Name": "Green Bottle Blue",
     "Location": "Venezuela",
     "Lat": 6.423750,
-    "Lon": -66.589729,
+    "Long": -66.589729,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
     "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/gbb.jpg",
     "ScientificName": "Chromatopelma cyaneopubescens"

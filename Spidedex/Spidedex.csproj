@@ -48,6 +48,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiAsset Remove="Resources\Raw\SpiderFactSheets.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Fonts\Caveat-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Caveat-Medium.ttf" />
