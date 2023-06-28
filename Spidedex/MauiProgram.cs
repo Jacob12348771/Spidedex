@@ -40,7 +40,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<LoadingPage>();
 		builder.Services.AddSingleton<LoadingPageViewModel>();
 
-		builder.Services.AddTransient<AddUpdateMySpidersPage>();
+        builder.Services.AddSingleton<SpiderFactSheetsPage>();
+        builder.Services.AddSingleton<SpiderFactSheetsPageViewModel>();
+
+        builder.Services.AddTransient<AddUpdateMySpidersPage>();
 		builder.Services.AddTransient<AddUpdateMySpidersPageViewModel>();
 
         return builder.Build();

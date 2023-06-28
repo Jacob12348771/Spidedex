@@ -45,7 +45,7 @@
         <ShellContent
         Icon="clipboard.svg"
         Title="Fact Sheets"
-        ContentTemplate="{DataTemplate local:MySpidersPage}">
+        ContentTemplate="{DataTemplate local:SpiderFactSheetsPage}">
         </ShellContent>
 
         <ShellContent
