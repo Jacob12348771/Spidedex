@@ -48,10 +48,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiAsset Remove="Resources\Raw\SpiderFactSheets.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Fonts\Caveat-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Caveat-Medium.ttf" />
@@ -68,6 +64,7 @@
 	  <None Remove="Resources\Images\settings.svg" />
 	  <None Remove="Resources\Images\spider_web.png" />
 	  <None Remove="Resources\Images\user.svg" />
+	  <None Remove="Resources\Raw\SpiderFactSheets.json" />
 	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 

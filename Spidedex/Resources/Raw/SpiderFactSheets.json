@@ -5,7 +5,7 @@
     "Lat": 23.634501,
     "Long": -102.552788,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
-    "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/red-rump.jpg",
+    "Image": "https://raw.githubusercontent.com/Jacob12348771/Spidedex/master/Spidedex/SpiderDetails/red-rump.jpg",
     "ScientificName": "Tliltocatl vagans"
   },
   {
@@ -14,7 +14,7 @@
     "Lat": 20.593683,
     "Long": 78.962883,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
-    "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/indian-ornamental.jpg",
+    "Image": "https://raw.githubusercontent.com/Jacob12348771/Spidedex/master/Spidedex/SpiderDetails/indian-ornamental.jpg",
     "ScientificName": "Poecilotheria regalis"
   },
   {
@@ -23,7 +23,7 @@
     "Lat": 12.865416,
     "Long": -85.207230,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
-    "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/curly-hair.jpg",
+    "Image": "https://raw.githubusercontent.com/Jacob12348771/Spidedex/master/Spidedex/SpiderDetails/curly-hair.jpg",
     "ScientificName": "Tliltocatl albopilosus"
   },
   {
@@ -32,7 +32,7 @@
     "Lat": 34.519939,
     "Long": -105.870087,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
-    "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/arizona-blonde.jpg",
+    "Image": "https://raw.githubusercontent.com/Jacob12348771/Spidedex/master/Spidedex/SpiderDetails/arizona-blonde.jpg",
     "ScientificName": "Aphonopelma chalcodes"
   },
   {
@@ -41,7 +41,7 @@
     "Lat": 6.423750,
     "Long": -66.589729,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
-    "Image": "https://raw.githubusercontent.com/jacob12348771/spidedex/master/spidedex/SpiderDetails/gbb.jpg",
+    "Image": "https://raw.githubusercontent.com/Jacob12348771/Spidedex/master/Spidedex/SpiderDetails/gbb.jpg",
     "ScientificName": "Chromatopelma cyaneopubescens"
   }
 ]
