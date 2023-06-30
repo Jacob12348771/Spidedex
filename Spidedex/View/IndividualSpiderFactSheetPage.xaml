@@ -48,7 +48,6 @@
             <Button Text="Show approximate location"
                     Command="{Binding ShowSpiderLocationCommand}"
                     HorizontalOptions="Center"
-                    WidthRequest="200"
                     FontSize="20"
                     Margin="8"/>
         </VerticalStackLayout>
