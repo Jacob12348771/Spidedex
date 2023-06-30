@@ -40,7 +40,7 @@ namespace Spidedex.ViewModel
             {
                 var userDetails = JsonConvert.DeserializeObject<User>(userDetailsString);
                 App.UserDetails = userDetails;
-                AppShell.Current.FlyoutHeader = new HeaderControl();
+                Shell.Current.FlyoutHeader = new HeaderControl();
                 await Shell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
             }
         }

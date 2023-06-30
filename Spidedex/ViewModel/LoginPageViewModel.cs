@@ -40,7 +40,7 @@ namespace Spidedex.ViewModel
         {
             if (!NetworkConnectivity.IsConnected())
             {
-                await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
                                            "Please check connectivity settings and try again.", "OK");
                 return;
             }
@@ -72,7 +72,7 @@ namespace Spidedex.ViewModel
 
                     Preferences.Set(nameof(App.UserDetails), userDetailsString);
                     App.UserDetails = userDetails;
-                    AppShell.Current.FlyoutHeader = new HeaderControl();
+                    Shell.Current.FlyoutHeader = new HeaderControl();
                     await spidersPageViewModel.GetSpidersCommand.ExecuteAsync(null);
                     await Shell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
 

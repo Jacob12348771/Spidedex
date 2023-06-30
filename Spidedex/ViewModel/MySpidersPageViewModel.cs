@@ -43,7 +43,7 @@ namespace Spidedex.ViewModel
                         Spiders.Add(spider);
                     }
                 }
-                await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
                                            "Please check connectivity settings and try again.", "OK");
                 return;
             }
@@ -68,7 +68,7 @@ namespace Spidedex.ViewModel
             }
             catch (Exception)
             {
-                await AppShell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
+                await Shell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
             }
             finally
             {
@@ -80,7 +80,7 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async Task AddUpdateMySpider()
         {
-            await AppShell.Current.GoToAsync(nameof(AddUpdateMySpidersPage));
+            await Shell.Current.GoToAsync(nameof(AddUpdateMySpidersPage));
         }
 
         [RelayCommand]
@@ -90,7 +90,7 @@ namespace Spidedex.ViewModel
             {
                 { "SpiderContents", spider }
             };
-            await AppShell.Current.GoToAsync($"{nameof(AddUpdateMySpidersPage)}", navigationParameter);
+            await Shell.Current.GoToAsync($"{nameof(AddUpdateMySpidersPage)}", navigationParameter);
         }
     }
 }

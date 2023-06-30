@@ -32,7 +32,7 @@ namespace Spidedex.ViewModel
         {
             if (!NetworkConnectivity.IsConnected())
             {
-                await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
                                            "Please check connectivity settings and try again.", "OK");
                 return;
             }

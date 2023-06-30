@@ -52,7 +52,7 @@ namespace Spidedex.ViewModel
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                await AppShell.Current.DisplayAlert("Error", ex.Message, "Ok");
+                await Shell.Current.DisplayAlert("Error", ex.Message, "Ok");
             }
             finally
             {
@@ -68,7 +68,7 @@ namespace Spidedex.ViewModel
             {
                 { "SpiderFactSheet", spiderFactSheet }
             };
-            await AppShell.Current.GoToAsync($"{nameof(IndividualSpiderFactSheetPage)}", navigationParameter);  
+            await Shell.Current.GoToAsync($"{nameof(IndividualSpiderFactSheetPage)}", navigationParameter);  
         }
     }
 }

@@ -54,11 +54,6 @@
         ContentTemplate="{DataTemplate local:MySpidersPage}">
         </ShellContent>
 
-        <ShellContent
-        Icon="settings.svg"
-        Title="Settings"
-        ContentTemplate="{DataTemplate local:MySpidersPage}">
-        </ShellContent>
     </FlyoutItem>
 
     <Shell.FlyoutFooter>

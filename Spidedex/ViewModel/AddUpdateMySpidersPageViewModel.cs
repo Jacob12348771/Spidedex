@@ -57,7 +57,7 @@ namespace Spidedex.ViewModel
             {
                 if (!NetworkConnectivity.IsConnected())
                 {
-                    await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                    await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
                                                "Please check connectivity settings and try again.", "OK");
                     return;
                 }
@@ -89,17 +89,17 @@ namespace Spidedex.ViewModel
                         });
                     }
 
-                    await AppShell.Current.DisplayAlert("Success", "Spider added/updated successfully", "Ok");
-                    await AppShell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
+                    await Shell.Current.DisplayAlert("Success", "Spider added/updated successfully", "Ok");
+                    await Shell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
                 }
                 else
                 {
-                    await AppShell.Current.DisplayAlert("Error", "Please fill out name and species", "Ok");
+                    await Shell.Current.DisplayAlert("Error", "Please fill out name and species", "Ok");
                 }
             }
             catch (Exception)
             {
-                await AppShell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
+                await Shell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
             }
             finally
             {
@@ -114,7 +114,7 @@ namespace Spidedex.ViewModel
             {
                 if (!NetworkConnectivity.IsConnected())
                 {
-                    await AppShell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                    await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
                                                "Unfortunately Spidedex needs network access. Please check connectivity settings and try again.", "OK");
                     return;
                 }
@@ -123,7 +123,7 @@ namespace Spidedex.ViewModel
                     return;
                 }
 
-                var userChoice = await AppShell.Current.DisplayAlert("Delete Spider", "Are you sure you want to delete this spider?", "Yes", "No");
+                var userChoice = await Shell.Current.DisplayAlert("Delete Spider", "Are you sure you want to delete this spider?", "Yes", "No");
 
                 if (!userChoice)
                 {
@@ -135,13 +135,13 @@ namespace Spidedex.ViewModel
                     IsLoading = true;
                     bool response = await _dataAccessService.DeleteSpiderAsync(spider.Id);
 
-                    await AppShell.Current.DisplayAlert("Success", "Spider has been successfully deleted", "Ok");
-                    await AppShell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
+                    await Shell.Current.DisplayAlert("Success", "Spider has been successfully deleted", "Ok");
+                    await Shell.Current.GoToAsync($"//{nameof(MySpidersPage)}");
                 }
             }
             catch (Exception)
             {
-                await AppShell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
+                await Shell.Current.DisplayAlert("Error", "Oops, something went wrong. Please try again later.", "Ok");
             }
             finally
             {
