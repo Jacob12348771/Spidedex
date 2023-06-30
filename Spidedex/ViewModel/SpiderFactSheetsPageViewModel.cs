@@ -36,6 +36,11 @@ namespace Spidedex.ViewModel
             {
                 IsBusy = true;
 
+                if (SpiderFactSheets.Count > 0)
+                {
+                    SpiderFactSheets.Clear();
+                }
+
                 var factSheets = await _dataAccessService.GetSpiderFactSheetsAsync();
 
                 foreach (var factSheet in factSheets)

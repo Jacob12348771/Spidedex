@@ -48,17 +48,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\ornamental.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Fonts\Caveat-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Caveat-Medium.ttf" />
 	  <None Remove="Resources\Fonts\Caveat-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Caveat-SemiBold.ttf" />
+	  <None Remove="Resources\Images\arizona_blonde.jpg" />
 	  <None Remove="Resources\Images\clipboard.svg" />
+	  <None Remove="Resources\Images\curly_hair.jpg" />
 	  <None Remove="Resources\Images\delete.png" />
+	  <None Remove="Resources\Images\gbb.jpg" />
 	  <None Remove="Resources\Images\globe.svg" />
 	  <None Remove="Resources\Images\help_circle.svg" />
 	  <None Remove="Resources\Images\lock.svg" />
 	  <None Remove="Resources\Images\plus.png" />
+	  <None Remove="Resources\Images\red_rump.jpg" />
 	  <None Remove="Resources\Images\rsz_web_left.png" />
 	  <None Remove="Resources\Images\rsz_web_right.png" />
 	  <None Remove="Resources\Images\settings.svg" />
