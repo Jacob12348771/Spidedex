@@ -16,5 +16,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(AddUpdateMySpidersPage), typeof(AddUpdateMySpidersPage));
         Routing.RegisterRoute(nameof(SpiderFactSheetsPage), typeof(SpiderFactSheetsPage));
         Routing.RegisterRoute(nameof(IndividualSpiderFactSheetPage), typeof(IndividualSpiderFactSheetPage));
+        Routing.RegisterRoute(nameof(ResourcesPage), typeof(ResourcesPage));
     }
 }

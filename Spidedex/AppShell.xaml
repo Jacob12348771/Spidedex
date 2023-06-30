@@ -51,7 +51,7 @@
         <ShellContent
         Icon="globe.svg"
         Title="Resources"
-        ContentTemplate="{DataTemplate local:MySpidersPage}">
+        ContentTemplate="{DataTemplate local:ResourcesPage}">
         </ShellContent>
 
     </FlyoutItem>

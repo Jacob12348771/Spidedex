@@ -115,6 +115,9 @@
 	  <MauiXaml Update="View\ResetPasswordPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\ResourcesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\SpiderFactSheetsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

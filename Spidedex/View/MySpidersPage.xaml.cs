@@ -12,6 +12,7 @@ public partial class MySpidersPage : ContentPage
         this.BindingContext = viewModel;
 	}
 
+    // To load spiders on page load.
 	protected override void OnAppearing()
 	{
         base.OnAppearing();

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Firebase.Auth;
 using Spidedex.Helper;
 using Spidedex.Model;
 using Spidedex.Services;
@@ -38,6 +39,7 @@ namespace Spidedex.ViewModel
 
         private async Task QuerySpiderContentsExist()
         {
+            // before load, do a quick check to see if the spider exists.
             await Task.Delay(100);
 
             if (SpiderContents.Id > 0)
@@ -84,7 +86,7 @@ namespace Spidedex.ViewModel
                             Size = SpiderContents.Size,
                             Diet = SpiderContents.Diet,
                             // Convert the string to enum for the temperament
-                            //Temperament = (Model.Spider.Tempereament)Enum.Parse(typeof(Model.Spider.Tempereament), SpiderContents.Temperament),
+                            Temperament = (Model.Spider.Tempereament)Enum.Parse(typeof(Model.Spider.Tempereament), SpiderContents.Temperament.ToString()),
                             UserInfo = App.UserDetails.Email
                         });
                     }

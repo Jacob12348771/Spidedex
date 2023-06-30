@@ -30,6 +30,7 @@ namespace Spidedex.Services
         {
             try
             {
+                // Spider doesn't exist so we want to create a new one.
                 if (spider.Id == 0)
                 {
                     var response = await _httpClient.PostAsync("/spiders", new StringContent(JsonConvert.SerializeObject(spider), Encoding.UTF8, "application/json"));
@@ -39,6 +40,7 @@ namespace Spidedex.Services
                         return await Task.FromResult(true);
                     }
                 }
+                // Spider exists so we want to update it.
                 else
                 {
                     var response = await _httpClient.PutAsync($"/spiders/{spider.Id}", new StringContent(JsonConvert.SerializeObject(spider), Encoding.UTF8, "application/json"));
@@ -58,13 +60,20 @@ namespace Spidedex.Services
 
         public async Task<bool> DeleteSpiderAsync(int spiderId)
         {
-            var response = await _httpClient.DeleteAsync($"/spiders/{spiderId}");
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                return await Task.FromResult(true);
+                var response = await _httpClient.DeleteAsync($"/spiders/{spiderId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return await Task.FromResult(true);
+                }
+                else
+                {
+                    return await Task.FromResult(false);
+                }
             }
-            else
+            catch (Exception)
             {
                 return await Task.FromResult(false);
             }
@@ -72,13 +81,20 @@ namespace Spidedex.Services
 
         public async Task<Spider> GetSpiderAsync(int spiderId)
         {
-            var response = await _httpClient.GetAsync($"/spiders/{spiderId}");
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var content = await response.Content.ReadAsStringAsync();
-                return await Task.FromResult(JsonConvert.DeserializeObject<Spider>(content));
+                var response = await _httpClient.GetAsync($"/spiders/{spiderId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    return await Task.FromResult(JsonConvert.DeserializeObject<Spider>(content));
+                }
+                else
+                {
+                    return await Task.FromResult<Spider>(null);
+                }
             }
-            else
+            catch (Exception)
             {
                 return await Task.FromResult<Spider>(null);
             }
@@ -114,8 +130,10 @@ namespace Spidedex.Services
         {
             try
             {
+                // Load the fact sheets locally from json file.
                 using var jsonStream = await FileSystem.OpenAppPackageFileAsync("SpiderFactSheets.json");
                 using var reader = new StreamReader(jsonStream);
+                // read the json file and deserialize it into a list of spider fact sheets.
                 var json = await reader.ReadToEndAsync();
                 spiderFactSheets = JsonConvert.DeserializeObject<List<SpiderFactSheet>>(json);
 

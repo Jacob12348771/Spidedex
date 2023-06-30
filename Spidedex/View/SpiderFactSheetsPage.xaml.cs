@@ -12,6 +12,7 @@ public partial class SpiderFactSheetsPage : ContentPage
         _viewModel = viewModel;
         this.BindingContext = viewModel;
     }
+    // To load spider fact sheets when the page is loaded.
     protected override void OnAppearing()
     {
         base.OnAppearing();

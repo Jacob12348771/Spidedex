@@ -44,6 +44,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<SpiderFactSheetsPage>();
         builder.Services.AddSingleton<SpiderFactSheetsPageViewModel>();
 
+        builder.Services.AddSingleton<ResourcesPage>();
+        builder.Services.AddSingleton<ResourcesPageViewModel>();
+
         builder.Services.AddTransient<AddUpdateMySpidersPage>();
 		builder.Services.AddTransient<AddUpdateMySpidersPageViewModel>();
 
