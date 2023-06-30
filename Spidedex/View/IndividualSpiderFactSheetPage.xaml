@@ -44,6 +44,13 @@
                 <Label TextDecorations="Underline" FontAttributes="Bold" FontSize="24" Text="Location"></Label>
                 <Label FontSize="20" Text="{Binding SpiderFactSheet.Location}" />
             </VerticalStackLayout>
+
+            <Button Text="Show approximate location"
+                    Command="{Binding ShowSpiderLocationCommand}"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    FontSize="20"
+                    Margin="8"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -12,8 +12,8 @@ namespace Spidedex.Model
         public string ScientificName { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        public string Lat { get; set; }
-        public string Long { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
         public string Location { get; set; }
 
     }
