@@ -28,7 +28,7 @@
                                BorderColor="Gray"
                                HasShadow="True">
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:SpiderFactSheetsPageViewModel}}, Path=GoToDetailsCommand}"
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:SpiderFactSheetsPageViewModel}}, Path=GoToSpiderFactSheetCommand}"
                                                       CommandParameter="{Binding .}"
                                                       NumberOfTapsRequired="1" />
                             </Frame.GestureRecognizers>

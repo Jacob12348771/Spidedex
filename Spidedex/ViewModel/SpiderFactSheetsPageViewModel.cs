@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Networking;
 using Spidedex.Model;
 using Spidedex.Services;
+using Spidedex.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -58,6 +59,16 @@ namespace Spidedex.ViewModel
                 IsBusy = false;
                 IsRefreshing = false;
             }
+        }
+
+        [RelayCommand]
+        async Task GoToSpiderFactSheet(SpiderFactSheet spiderFactSheet)
+        {
+            var navigationParameter = new Dictionary<string, object>
+            {
+                { "SpiderFactSheet", spiderFactSheet }
+            };
+            await AppShell.Current.GoToAsync($"{nameof(IndividualSpiderFactSheetPage)}", navigationParameter);  
         }
     }
 }

@@ -48,10 +48,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Remove="Resources\Images\ornamental.jpg" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Fonts\Caveat-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Caveat-Medium.ttf" />
@@ -65,6 +61,7 @@
 	  <None Remove="Resources\Images\globe.svg" />
 	  <None Remove="Resources\Images\help_circle.svg" />
 	  <None Remove="Resources\Images\lock.svg" />
+	  <None Remove="Resources\Images\ornamental.jpg" />
 	  <None Remove="Resources\Images\plus.png" />
 	  <None Remove="Resources\Images\red_rump.jpg" />
 	  <None Remove="Resources\Images\rsz_web_left.png" />
@@ -104,6 +101,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\AddUpdateMySpidersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\IndividualSpiderFactSheetPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\MySpidersPage.xaml">

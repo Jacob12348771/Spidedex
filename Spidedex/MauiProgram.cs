@@ -46,6 +46,9 @@ public static class MauiProgram
         builder.Services.AddTransient<AddUpdateMySpidersPage>();
 		builder.Services.AddTransient<AddUpdateMySpidersPageViewModel>();
 
+        builder.Services.AddTransient<IndividualSpiderFactSheetPage>();
+        builder.Services.AddTransient<IndividualSpiderFactSheetPageViewModel>();
+
         return builder.Build();
 	}
 }
