@@ -16,7 +16,7 @@
         <StackLayout Margin="0,20,0,0" Spacing="20">
             <Label Text="1. The Tarantula Collective"
                    FontSize="22"
-                   TextColor="Blue"
+                   TextColor="{StaticResource Primary}"
                    TextDecorations="Underline">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ResourcesPageViewModel}}, Path=OpenLinkCommand}" 
@@ -25,7 +25,7 @@
             </Label>
             <Label Text="2. Tarantula Forum"
                    FontSize="22"
-                   TextColor="Blue"
+                   TextColor="{StaticResource Primary}"
                    TextDecorations="Underline">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ResourcesPageViewModel}}, Path=OpenLinkCommand}" 
@@ -34,7 +34,7 @@
             </Label>
             <Label Text="3. The Spider Shop"
                    FontSize="22"
-                   TextColor="Blue"
+                   TextColor="{StaticResource Primary}"
                    TextDecorations="Underline">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ResourcesPageViewModel}}, Path=OpenLinkCommand}" 
