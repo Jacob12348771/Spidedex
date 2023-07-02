@@ -80,9 +80,10 @@ namespace Spidedex.ViewModel
                 }
                 finally
                 {
-                    IsLoading = false;
                     Email = string.Empty;
                     Password = string.Empty;
+                    ConfirmPassword = string.Empty;
+                    IsLoading = false;
                 }
             }
         }
@@ -90,6 +91,9 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async void NavigateToLogin()
         {
+            Email = string.Empty;
+            Password = string.Empty;
+            ConfirmPassword = string.Empty;
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }

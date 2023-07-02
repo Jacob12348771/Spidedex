@@ -4,7 +4,7 @@
     "Location": "Mexico & Central America",
     "Lat": 23.634501,
     "Long": -102.552788,
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
+    "Description": "The Mexican Red Rump Tarantula gets its name from the red hairs present on the abdomen. They can be found in moist areas of Mexico.",
     "Image": "red_rump.jpg",
     "ScientificName": "Tliltocatl vagans"
   },
@@ -13,7 +13,7 @@
     "Location": "India",
     "Lat": 20.593683,
     "Long": 78.962883,
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
+    "Description": "A beautiful arboreal species found in India. This spider much like other members of the Poecilotheria genus is more suited to keepers with previous tarantula experience. This is due to their fast and potentially aggressive nature. ",
     "Image": "ornamental.jpg",
     "ScientificName": "Poecilotheria regalis"
   },
@@ -22,7 +22,7 @@
     "Location": "Nicaragua & Costa Rica",
     "Lat": 12.865416,
     "Long": -85.207230,
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
+    "Description": "The Curly Hair Tarantula is ideal for the novice keeper. Easily available, cheap and easy to care for makes them a great chose for a beginner.",
     "Image": "curly_hair.jpg",
     "ScientificName": "Tliltocatl albopilosus"
   },
@@ -31,7 +31,7 @@
     "Location": "Southwestern United States",
     "Lat": 34.519939,
     "Long": -105.870087,
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
+    "Description": "A pretty and chunky Aphonopelma species that is overall blonde with a brown abdomen covered in reddish setae hairs. These are a desert species from Arizona and are extremely easy to care for.",
     "Image": "arizona_blonde.jpg",
     "ScientificName": "Aphonopelma chalcodes"
   },
@@ -40,7 +40,7 @@
     "Location": "Venezuela",
     "Lat": 6.423750,
     "Long": -66.589729,
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis massa sed elementum tempus egestas sed sed.",
+    "Description": "The Venezuelan Green Bottle Blue Tarantula is a nice attractive species with blue legs, green carapace and orange abdomen. Definitely one for the collection!",
     "Image": "gbb.jpg",
     "ScientificName": "Chromatopelma cyaneopubescens"
   }

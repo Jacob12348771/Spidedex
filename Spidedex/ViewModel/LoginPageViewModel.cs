@@ -112,12 +112,16 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async void NavigateToRegister()
         {
+            Email = string.Empty;
+            Password = string.Empty;
             await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
 
         [RelayCommand]
         async void NavigateToResetPassword()
         {
+            Email = string.Empty;
+            Password = string.Empty;
             await Shell.Current.GoToAsync($"//{nameof(ResetPasswordPage)}");
         }
     }

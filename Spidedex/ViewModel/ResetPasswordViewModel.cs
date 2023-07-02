@@ -70,6 +70,7 @@ namespace Spidedex.ViewModel
                 }
                 finally
                 {
+                    Email = string.Empty;
                     IsLoading = false;
                     Email = string.Empty;
                 }
@@ -79,6 +80,7 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async void NavigateToLogin()
         {
+            Email = string.Empty;
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
