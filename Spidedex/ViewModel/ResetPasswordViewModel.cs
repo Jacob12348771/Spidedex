@@ -38,11 +38,11 @@ namespace Spidedex.ViewModel
             }
             if (!string.IsNullOrWhiteSpace(Email))
             {
-                IsLoading = true;
                 if (IsLoading)
                 {
                     return;
                 }
+                IsLoading = true;
                 try
                 {
                     var authenticationProvider = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
@@ -52,7 +52,7 @@ namespace Spidedex.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    if (ex.Message.Contains("UnkownEmailAddress"))
+                    if (ex.Message.Contains("UnknownEmailAddress"))
                     {
                         await App.Current.MainPage.DisplayAlert("Error", "User does not exist", "OK");
                         return;

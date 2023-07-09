@@ -79,7 +79,7 @@ namespace Spidedex.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    if (ex.Message.Contains("UnkownEmailAddress"))
+                    if (ex.Message.Contains("UnknownEmailAddress"))
                     {
                         await App.Current.MainPage.DisplayAlert("Error", "User does not exist", "OK");
                         return;
