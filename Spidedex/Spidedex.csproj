@@ -130,4 +130,11 @@
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionSpidedexHideInfoBar="True" XamarinHotReloadWrongLinkerErrorInfoBarSpidedexHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>key.keystore</AndroidSigningKeyStore>
+		<AndroidSigningStorePass>uEoPOef1mGwr5DofR0iU</AndroidSigningStorePass>
+		<AndroidSigningKeyAlias>SpidedexAlias12348771</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>uEoPOef1mGwr5DofR0iU</AndroidSigningKeyPass>
+	</PropertyGroup>
 </Project>
