@@ -37,7 +37,7 @@
     <FlyoutItem Route="MySpidersPage" FlyoutDisplayOptions="AsMultipleItems">
         
         <ShellContent
-        Icon="spider_web.png"
+        Icon="spider_web.svg"
         Title="My Spiders"
         ContentTemplate="{DataTemplate local:MySpidersPage}">
         </ShellContent>

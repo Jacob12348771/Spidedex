@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.Input;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using Spidedex.Controls;
+using Spidedex.Helper;
 using Spidedex.Model;
 using Spidedex.View;
 
@@ -32,6 +33,12 @@ namespace Spidedex.ViewModel
         [RelayCommand]
         async void Register()
         {
+            if (!NetworkConnectivity.IsConnected())
+            {
+                await Shell.Current.DisplayAlert("Error", "No internet connection could be made." +
+                                           "Please check connectivity settings and try again.", "OK");
+                return;
+            }
             if (IsLoading)
             {
                 return;

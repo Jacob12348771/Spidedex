@@ -65,48 +65,62 @@
                 <StackLayout Margin="20, 0" IsVisible="{Binding IsLoading, Converter={StaticResource InvertedBoolConverter}}">
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Name (Required)" Style="{StaticResource SectionLabelStyle}" />
-                        <Entry FontSize="18" Text="{Binding SpiderContents.Name}" Placeholder="Enter Name" Style="{StaticResource EntryStyle}" />
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="45">
+                            <Entry FontSize="18" Text="{Binding SpiderContents.Name}" Placeholder="Enter Name" Style="{StaticResource EntryStyle}" />
+                        </Frame>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Date Obtained" Style="{StaticResource SectionLabelStyle}" />
-                        <DatePicker FontSize="18" Date="{Binding SpiderContents.DateObtained}" Style="{StaticResource EntryStyle}" />
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="45">
+                            <DatePicker FontSize="18" Date="{Binding SpiderContents.DateObtained}" Style="{StaticResource EntryStyle}" />
+                        </Frame>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Species (Required)" Style="{StaticResource SectionLabelStyle}" />
-                        <Entry FontSize="18" Text="{Binding SpiderContents.Species}" Placeholder="Enter Species" Style="{StaticResource EntryStyle}" />
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="45">
+                            <Entry FontSize="18" Text="{Binding SpiderContents.Species}" Placeholder="Enter Species" Style="{StaticResource EntryStyle}" />
+                        </Frame>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Enter Description" Style="{StaticResource SectionLabelStyle}" />
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="90">
                         <Editor FontSize="18" Text="{Binding SpiderContents.Description}" Placeholder="Description" Keyboard="Text" HeightRequest="100"
-            AutoSize="TextChanges" TextColor="#333333" PlaceholderColor="#999999" BackgroundColor="#f2f2f2"/>
+                            AutoSize="TextChanges" TextColor="#333333" PlaceholderColor="#999999" BackgroundColor="#f2f2f2"/>
+                        </Frame>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Size (Diagonal Leg Span)" Style="{StaticResource SectionLabelStyle}" />
-                        <Entry FontSize="18" Text="{Binding SpiderContents.Size}" Placeholder="Enter Size" Style="{StaticResource EntryStyle}" />
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="45">
+                            <Entry FontSize="18" Text="{Binding SpiderContents.Size}" Placeholder="Enter Size" Style="{StaticResource EntryStyle}" />
+                        </Frame>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Food of Choice" Style="{StaticResource SectionLabelStyle}" />
-                        <Entry FontSize="18" Text="{Binding SpiderContents.Diet}" Placeholder="Enter Food" Style="{StaticResource EntryStyle}" />
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="45">
+                            <Entry FontSize="18" Text="{Binding SpiderContents.Diet}" Placeholder="Enter Food" Style="{StaticResource EntryStyle}" />
+                        </Frame>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Temperament" Style="{StaticResource SectionLabelStyle}" />
-                        <Picker FontSize="18" Style="{StaticResource EntryStyle}" SelectedItem="{Binding SpiderContents.Temperament}">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Docile</x:String>
-                                    <x:String>Neutral</x:String>
-                                    <x:String>Aggressive</x:String>
-                                    <x:String>Skittish</x:String>
-                                    <x:String>Calm</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
+                        <Frame CornerRadius="15" Padding="0" HeightRequest="45">
+                            <Picker FontSize="18" Style="{StaticResource EntryStyle}" SelectedItem="{Binding SpiderContents.Temperament}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Docile</x:String>
+                                        <x:String>Neutral</x:String>
+                                        <x:String>Aggressive</x:String>
+                                        <x:String>Skittish</x:String>
+                                        <x:String>Calm</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Frame>
                     </VerticalStackLayout>
 
                     <Button FontSize="20" Text="Save Spider" Margin="0, 10" Command="{Binding AddUpdateMySpiderCommand}"></Button>
