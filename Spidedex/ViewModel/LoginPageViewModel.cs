@@ -24,7 +24,7 @@ namespace Spidedex.ViewModel
             this.spidersPageViewModel = spidersPageViewModel;
         }
 
-        public string apiKey = "AIzaSyBxH3egBwl1T5ukQhRHga7OerGPc-2lCDA ";
+        public string apiKey = "<<API KEY>>";
 
         [ObservableProperty]
         private string _email;
