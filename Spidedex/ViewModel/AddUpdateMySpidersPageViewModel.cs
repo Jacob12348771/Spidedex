@@ -85,6 +85,7 @@ namespace Spidedex.ViewModel
                             Description = SpiderContents.Description,
                             Size = SpiderContents.Size,
                             Diet = SpiderContents.Diet,
+                            DateObtained = SpiderContents.DateObtained,
                             // Convert the string to enum for the temperament
                             Temperament = (Model.Spider.Tempereament)Enum.Parse(typeof(Model.Spider.Tempereament), SpiderContents.Temperament.ToString()),
                             UserInfo = App.UserDetails.Email

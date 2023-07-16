@@ -73,7 +73,7 @@
                     <VerticalStackLayout>
                         <Label FontSize="20" Text="Date Obtained" Style="{StaticResource SectionLabelStyle}" />
                         <Frame CornerRadius="15" Padding="0" HeightRequest="45">
-                            <DatePicker FontSize="18" Date="{Binding SpiderContents.DateObtained}" Style="{StaticResource EntryStyle}" />
+                            <DatePicker Format="dd/MM/yyyy" FontSize="18" Date="{Binding SpiderContents.DateObtained}" Style="{StaticResource EntryStyle}" />
                         </Frame>
                     </VerticalStackLayout>
 

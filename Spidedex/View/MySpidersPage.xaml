@@ -70,27 +70,27 @@
                                             <Label TextColor="{StaticResource Primary}" Text="{Binding Species}" FontSize="17" FontAttributes="Italic" />
                                             <Label TextColor="Black" FontSize="18" Margin="0,5,0,0">
                                                 <Label.Text>
-                                                    <Binding Path="DateObtained" StringFormat="Date Obtained: {0}"></Binding>
+                                                    <Binding Path="DateObtained" StringFormat="Date Obtained: {0:dd/MM/yyyy} "></Binding>
                                                 </Label.Text>
                                             </Label>
                                             <Label TextColor="Black" FontSize="18" Margin="0,5,0,0">
                                                 <Label.Text>
-                                                    <Binding Path="Description" StringFormat="Description: {0}"></Binding>
+                                                    <Binding Path="Description" StringFormat="Description: {0} "></Binding>
                                                 </Label.Text>
                                             </Label>
                                             <Label TextColor="Black" FontSize="18" Margin="0,5,0,0">
                                                 <Label.Text>
-                                                    <Binding Path="Size" StringFormat="Size (Diagonal Leg Span): {0}"></Binding>
+                                                    <Binding Path="Size" StringFormat="Size (Diagonal Leg Span): {0} "></Binding>
                                                 </Label.Text>
                                             </Label>
                                             <Label TextColor="Black" FontSize="18" Margin="0,5,0,0">
                                                 <Label.Text>
-                                                    <Binding Path="Diet" StringFormat="Feed: {0}"></Binding>
+                                                    <Binding Path="Diet" StringFormat="Feed: {0} "></Binding>
                                                 </Label.Text>
                                             </Label>
                                             <Label TextColor="Black" FontSize="18" Margin="0,5,0,0">
                                                 <Label.Text>
-                                                    <Binding Path="Temperament" StringFormat="Temperament: {0}"></Binding>
+                                                    <Binding Path="Temperament" StringFormat="Temperament: {0} "></Binding>
                                                 </Label.Text>
                                             </Label>
                                         </FlexLayout>

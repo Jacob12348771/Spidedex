@@ -16,7 +16,7 @@ public class SpidedexDbContext : DbContext
             new Spider
             {
                 Id = 1,
-                DateObtained = new DateOnly(2021, 10, 1),
+                DateObtained = new DateTime(2021, 10, 1),
                 Name = "Charlotte",
                 Species = "Argiope aurantia",
                 Description = "A cool spooder",
@@ -28,7 +28,7 @@ public class SpidedexDbContext : DbContext
             new Spider
             {
                 Id = 2,
-                DateObtained = new DateOnly(2023, 09, 13),
+                DateObtained = new DateTime(2023, 09, 13),
                 Name = "Luna",
                 Species = "Tliltocatl vagans",
                 Description = "My spooder",
@@ -40,7 +40,7 @@ public class SpidedexDbContext : DbContext
             new Spider
             {
                 Id = 3,
-                DateObtained = new DateOnly(2022, 05, 23),
+                DateObtained = new DateTime(2022, 05, 23),
                 Name = "Pokey",
                 Species = "Poecilotheria regalis",
                 Description = "Ouch it hurts",
